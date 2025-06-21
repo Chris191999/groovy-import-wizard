@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +12,14 @@ import ResponsiveHeader from './ResponsiveHeader';
 const LandingPage = () => {
   const navigate = useNavigate();
   const [showLightbox, setShowLightbox] = useState(false);
-  const [selectedImage, setSelectedImage] = useState('');
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const lightboxImages = [
+    { src: '/overview.jpg', alt: 'Dashboard Overview - Complete trading performance at a glance' },
+    { src: '/all trades.jpg', alt: 'Trade Management - Organize and track all your trades' },
+    { src: '/add trades.jpg', alt: 'Quick Trade Entry - Easy and intuitive trade logging' },
+    { src: '/importexport.jpg', alt: 'Data Management - Import/export your trading data' }
+  ];
 
   const features = [
     {
@@ -52,8 +60,8 @@ const LandingPage = () => {
     }
   ];
 
-  const openLightbox = (imageSrc: string) => {
-    setSelectedImage(imageSrc);
+  const openLightbox = (imageIndex: number) => {
+    setSelectedImageIndex(imageIndex);
     setShowLightbox(true);
   };
 
@@ -353,7 +361,7 @@ const LandingPage = () => {
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                   className="glass-card p-4 sm:p-6 cursor-pointer hover:scale-105 transition-transform duration-300"
-                  onClick={() => openLightbox('/overview.jpg')}
+                  onClick={() => openLightbox(0)}
                 >
                   <img src="/overview.jpg" alt="Overview Dashboard" className="w-full h-32 sm:h-40 object-cover rounded-lg mb-4" />
                   <h3 className="font-bold text-white mb-2">Dashboard Overview</h3>
@@ -366,7 +374,7 @@ const LandingPage = () => {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   viewport={{ once: true }}
                   className="glass-card p-4 sm:p-6 cursor-pointer hover:scale-105 transition-transform duration-300"
-                  onClick={() => openLightbox('/all trades.jpg')}
+                  onClick={() => openLightbox(1)}
                 >
                   <img src="/all trades.jpg" alt="All Trades View" className="w-full h-32 sm:h-40 object-cover rounded-lg mb-4" />
                   <h3 className="font-bold text-white mb-2">Trade Management</h3>
@@ -381,7 +389,7 @@ const LandingPage = () => {
                   transition={{ duration: 0.8, delay: 0.1 }}
                   viewport={{ once: true }}
                   className="glass-card p-4 sm:p-6 cursor-pointer hover:scale-105 transition-transform duration-300"
-                  onClick={() => openLightbox('/add trades.jpg')}
+                  onClick={() => openLightbox(2)}
                 >
                   <img src="/add trades.jpg" alt="Add New Trade" className="w-full h-32 sm:h-40 object-cover rounded-lg mb-4" />
                   <h3 className="font-bold text-white mb-2">Quick Trade Entry</h3>
@@ -394,7 +402,7 @@ const LandingPage = () => {
                   transition={{ duration: 0.8, delay: 0.3 }}
                   viewport={{ once: true }}
                   className="glass-card p-4 sm:p-6 cursor-pointer hover:scale-105 transition-transform duration-300"
-                  onClick={() => openLightbox('/importexport.jpg')}
+                  onClick={() => openLightbox(3)}
                 >
                   <img src="/importexport.jpg" alt="Import Export" className="w-full h-32 sm:h-40 object-cover rounded-lg mb-4" />
                   <h3 className="font-bold text-white mb-2">Data Management</h3>
@@ -411,7 +419,7 @@ const LandingPage = () => {
               viewport={{ once: true }}
               className="flex justify-center"
             >
-              <DeviceMockup />
+              <DeviceMockup image="/overview.jpg" alt="TRADEMIND Dashboard Preview" />
             </motion.div>
           </div>
         </div>
@@ -451,9 +459,10 @@ const LandingPage = () => {
 
       {/* Lightbox */}
       <KeyFeaturesLightbox 
+        images={lightboxImages}
+        photoIndex={selectedImageIndex}
         isOpen={showLightbox} 
         onClose={() => setShowLightbox(false)} 
-        imageSrc={selectedImage} 
       />
     </div>
   );
