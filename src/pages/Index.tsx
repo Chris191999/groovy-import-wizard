@@ -1,10 +1,11 @@
+
 import { useAuth } from "@/hooks/useAuth";
 import TradingDashboard from "@/components/trading/TradingDashboard";
 import { useState } from "react";
 import { Trade } from "@/types/trade";
 import { useTrades } from "@/hooks/trading/useTrades";
 import { UserMenu } from "@/components/layout/UserMenu";
-import { LandingPage } from "@/components/layout/LandingPage";
+import LandingPage from "@/components/layout/LandingPage";
 
 const Index = () => {
   const { user, profile, loading } = useAuth();
