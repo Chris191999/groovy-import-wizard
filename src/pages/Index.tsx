@@ -1,11 +1,10 @@
-
 import { useAuth } from "@/hooks/useAuth";
 import TradingDashboard from "@/components/trading/TradingDashboard";
 import { useState } from "react";
 import { Trade } from "@/types/trade";
 import { useTrades } from "@/hooks/trading/useTrades";
 import { UserMenu } from "@/components/layout/UserMenu";
-import LandingPage from "@/components/layout/LandingPage";
+import { LandingPage } from "@/components/layout/LandingPage";
 
 const Index = () => {
   const { user, profile, loading } = useAuth();
@@ -59,7 +58,7 @@ const Index = () => {
         <UserMenu />
         <div className="mb-6">
           <h1 className="text-3xl font-bold">
-            <span style={{ color: '#db6dfe' }}>TRADEMIND</span>
+            <span style={{ color: '#f5dd01' }}>TRADEMIND</span>
           </h1>
           <p className="text-muted-foreground">
             Welcome back, {profile?.full_name || user.email}.

@@ -123,7 +123,7 @@ const AuthPage = () => {
   
   useEffect(() => {
     if (session) {
-      navigate('/app');
+      navigate('/');
     }
   }, [session, navigate]);
   
@@ -143,14 +143,14 @@ const AuthPage = () => {
         <Card className="w-[400px] glass-morphism border-0 shadow-2xl">
           <CardHeader className="flex flex-col items-center gap-2 pb-2">
             <img
-              src="/Logo.png"
-              alt="Logo"
+              src="/THT-Trademind LOGO resized .png "
+                alt="Logo"
               className="w-24 h-24 rounded-full object-cover border-4 border-yellow-400 shadow-lg mx-auto bg-gray-900"
               style={{ display: 'block' }}
             />
             <div className="text-center mt-2">
-              <div className="text-lg font-bold tracking-wide text-yellow-400">The House of Traders</div>
-              <div className="text-2xl font-extrabold golden-text drop-shadow-sm">Trademind</div>
+              <div className="text-lg font-bold tracking-wide text-[#872bdb]">The House of Traders</div>
+              <div className="text-2xl font-extrabold drop-shadow-sm text-[#f5dd01]">Trademind</div>
               <div className="text-xs text-gray-400 mt-1">The Holy App for Traders</div>
             </div>
           </CardHeader>

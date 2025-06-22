@@ -19,7 +19,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <Link to="/app">
+      <Link to="/">
         <Button variant="outline" className="mb-4">
           <ArrowLeft />
           Back to Web App
